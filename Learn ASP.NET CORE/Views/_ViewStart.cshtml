@@ -1,0 +1,11 @@
+﻿@* apa itu viewstart?
+    Ini adalah file khusus di ASP.NET Core MVC.
+    Kode dalam file ini dieksekusi sebelum kode dalam tampilan individual dieksekusi
+     ini berarti, alih-alih mengatur properti Layout di setiap tampilan individual,
+    kita dapat memindahkan kode itu ke file _ViewStart.cshtml. Dengan mengatur properti Layout di file _ViewStart.cshtml mempertahankan aplikasi kita menjadi lebih mudah.
+    Di masa depan, jika kita ingin menggunakan file tata letak yang berbeda,
+    kita hanya perlu mengubah kode di satu tempat di _ViewStart.cshtml.*@
+
+@{
+    Layout = "_Layout";
+}

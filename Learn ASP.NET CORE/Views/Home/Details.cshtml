@@ -1,0 +1,39 @@
+﻿@* dibawah ini kita menggunakan @model directive, agar bisa memakai strongly type view *@
+@model HomeDetailsViewModel
+
+@* menggunakan layout view  *@
+
+@{
+    ViewBag.Title = "Employee Details";
+    // variabel photo path, menyimpan path ke file upload kita, jika kita mengupload photo. jika tidak maka dada.jpg akan menjadi default gambar
+    var photoPath = "~/images/" + (Model.Employee.PhotoPath ?? "dada.jpg");
+}
+
+@* Di cshtml (Razor view), kita bisa menggunakan symbol "@" untuk bisa menggunakan C# *@
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Model.Employee.Name</h1>
+                </div>
+
+                <div class="card-body text-center">
+                    <img class="card-img-top" src=@photoPath asp-append-version="true" />
+
+                    <h4>Employee ID : @Model.Employee.Id</h4>
+                    <h4>Email : @Model.Employee.Email</h4>
+                    <h4>Department : @Model.Employee.Department</h4>
+
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                    <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Employee.Id" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@* untuk menyediakan section content, kita menggunakan section directive *@
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}
